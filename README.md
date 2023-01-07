@@ -24,9 +24,9 @@ https://stem.ubidots.com/app/dashboards/public/dashboard/2k8Jn50Akdml2kykNC2Kc8E
 - Install node red 
 - Start on local host 
 - Import libries mentioned in the document 
-- Import flow.json 
-![xcsxcxc](https://user-images.githubusercontent.com/62338143/211173963-fd83102d-b4d5-418a-b3d2-51763fd83d26.png)
+- Import flow.json:
+- ![xcsxcxc](https://user-images.githubusercontent.com/62338143/211173963-fd83102d-b4d5-418a-b3d2-51763fd83d26.png)
 
-- you can scane using the node red dashboard
+- you can scane using the node red dashboard:
 
 ![sadrrasdsa](https://user-images.githubusercontent.com/62338143/211173958-3f4504fc-4778-490f-b908-6e38dd78199e.png)
