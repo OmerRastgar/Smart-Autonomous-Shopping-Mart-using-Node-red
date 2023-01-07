@@ -1,0 +1,1769 @@
+[
+    {
+        "id": "b720409cea17e211",
+        "type": "tab",
+        "label": "adc project ",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "51892802138174b8",
+        "type": "ui_list",
+        "z": "b720409cea17e211",
+        "d": true,
+        "group": "5705b53f.d3e0bc",
+        "name": "",
+        "order": 1,
+        "width": 6,
+        "height": 5,
+        "lineType": "three",
+        "actionType": "none",
+        "allowHTML": true,
+        "outputs": 0,
+        "topic": "",
+        "x": 2270,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "58e2d5c6a4a1900a",
+        "type": "inject",
+        "z": "b720409cea17e211",
+        "d": true,
+        "name": "Fruits",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "[{\"title\":\"<b>Banana</b>\",\"description\":\"Buy NOW\",\"icon\":null},{\"title\":\"<b>Orange</b>\",\"description\":\"Buy NOW\",\"icon\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/440px-Ambersweet_oranges.jpg\"},{\"title\":\"<b>Watermelon</b>\",\"description\":\"Buy NOW\",\"icon\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vampire_watermelon.jpg/440px-Vampire_watermelon.jpg\"}]",
+        "payloadType": "json",
+        "x": 2130,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "998a6fedbf83835a",
+        "type": "ui_webcam",
+        "z": "b720409cea17e211",
+        "name": "",
+        "group": "7c179a83b56fef95",
+        "order": 3,
+        "width": 10,
+        "height": 10,
+        "countdown": false,
+        "autoStart": false,
+        "hideCaptureButton": false,
+        "showImage": "2",
+        "mirror": true,
+        "format": "png",
+        "x": 240,
+        "y": 660,
+        "wires": [
+            [
+                "13682cf767e2a8a4",
+                "171e30a663fadf96"
+            ]
+        ]
+    },
+    {
+        "id": "13682cf767e2a8a4",
+        "type": "image viewer",
+        "z": "b720409cea17e211",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 870,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "365d1c9a79da8020",
+        "type": "remote-access",
+        "z": "b720409cea17e211",
+        "confignode": "6454750db0f47322",
+        "name": "smart mart",
+        "verbose": true,
+        "x": 320,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31460d9e0801719a",
+        "type": "ui_upload",
+        "z": "b720409cea17e211",
+        "group": "7c179a83b56fef95",
+        "title": "upload",
+        "name": "",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "chunk": 256,
+        "transfer": "binary",
+        "x": 230,
+        "y": 740,
+        "wires": [
+            [
+                "9e86538cde481cdb"
+            ]
+        ]
+    },
+    {
+        "id": "9e86538cde481cdb",
+        "type": "jimp-image",
+        "z": "b720409cea17e211",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "",
+        "parameter1Type": "msg",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 0,
+        "jimpFunction": "none",
+        "selectedJimpFunction": {
+            "name": "none",
+            "fn": "none",
+            "description": "Just loads the image.",
+            "parameters": []
+        },
+        "x": 370,
+        "y": 820,
+        "wires": [
+            [
+                "64b15afe6404e59e",
+                "171e30a663fadf96"
+            ]
+        ]
+    },
+    {
+        "id": "64b15afe6404e59e",
+        "type": "image viewer",
+        "z": "b720409cea17e211",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 630,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "171e30a663fadf96",
+        "type": "Barcode Decoder",
+        "z": "b720409cea17e211",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "tryharder": "true",
+        "tryharderType": "bool",
+        "QR_CODE": false,
+        "DATA_MATRIX": false,
+        "PDF_417": false,
+        "EAN_8": false,
+        "EAN_13": false,
+        "CODE_39": false,
+        "CODE_128": true,
+        "ITF": false,
+        "RSS_14": false,
+        "x": 710,
+        "y": 780,
+        "wires": [
+            [
+                "f5abb6a90e40b06a",
+                "87a9009172624f76"
+            ]
+        ]
+    },
+    {
+        "id": "c8ccd9e64da7d25e",
+        "type": "debug",
+        "z": "b720409cea17e211",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "f5abb6a90e40b06a",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": " obj = {\"CODE 128\": 43 , \"1234567890\": 50};\nmsg.payload.name = msg.payload;\nmsg.payload.number = obj[msg.payload.name];\nif (msg.payload == undefined){\n    msg.payload=0;\n    \n}\nreturn msg;\n\n\n/*\nvar myStringArray = [\"CODE 128\",\"1234567890\"];\nvar arrayLength = myStringArray.length;\nfor (var i = 0; i < arrayLength; i++) {\n    if (myStringArray[i] == msg.payload){\n    msg.payload = 1;\n    return msg ;\n}\n}\n\nmsg.payload = 0;\nreturn msg;\n*/",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 740,
+        "wires": [
+            [
+                "c8ccd9e64da7d25e"
+            ]
+        ]
+    },
+    {
+        "id": "16b439f988ec2107",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"lays\" :msg.payload.lays};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2220,
+        "y": 700,
+        "wires": [
+            [
+                "76f9145798fef06a"
+            ]
+        ]
+    },
+    {
+        "id": "76f9145798fef06a",
+        "type": "ubidots_out",
+        "z": "b720409cea17e211",
+        "name": "",
+        "token": "BBFF-kIIv5BfT8a0dmJTdNhzXGrUrEX7GG7",
+        "label_device": "",
+        "device_label": "project-adc",
+        "tier": "business",
+        "tls_checkbox": true,
+        "x": 2410,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4c331265eadc6518",
+        "type": "file",
+        "z": "b720409cea17e211",
+        "name": "",
+        "filename": "C:\\Users\\DELL\\Downloads\\quantity.csv",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 2550,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4a4f5c54353e7d1b",
+        "type": "file in",
+        "z": "b720409cea17e211",
+        "name": "",
+        "filename": "C:\\Users\\DELL\\Downloads\\quantity.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 1330,
+        "y": 780,
+        "wires": [
+            [
+                "58c7bd803619d80b"
+            ]
+        ]
+    },
+    {
+        "id": "58c7bd803619d80b",
+        "type": "csv",
+        "z": "b720409cea17e211",
+        "name": "Parse values",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1610,
+        "y": 800,
+        "wires": [
+            [
+                "a15b98940ca349ab"
+            ]
+        ]
+    },
+    {
+        "id": "a15b98940ca349ab",
+        "type": "delay",
+        "z": "b720409cea17e211",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1770,
+        "y": 820,
+        "wires": [
+            [
+                "44984bd88675d361"
+            ]
+        ]
+    },
+    {
+        "id": "44984bd88675d361",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "msg.topic= \"lays\";\nmsg.payload.lays=msg.payload.lays-1;   \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1940,
+        "y": 820,
+        "wires": [
+            [
+                "924927f2fbb8b41f",
+                "3197665b3622f94f",
+                "16b439f988ec2107",
+                "ebbe860dc9785639",
+                "85675b5f766e5be3",
+                "3c457455add3589f"
+            ]
+        ]
+    },
+    {
+        "id": "924927f2fbb8b41f",
+        "type": "debug",
+        "z": "b720409cea17e211",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2530,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "3197665b3622f94f",
+        "type": "csv",
+        "z": "b720409cea17e211",
+        "name": "Parse values",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 2290,
+        "y": 960,
+        "wires": [
+            [
+                "4c331265eadc6518"
+            ]
+        ]
+    },
+    {
+        "id": "87a9009172624f76",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "if (msg.payload == \"lays\")\n{\n    return [msg,null,null,null];    \n}\nelse if (msg.payload == \"coke\")\n{\n    return [null,msg,null,null];    \n}\nelse if (msg.payload == \"super\")\n{\n    return [null,null,msg,null];    \n}\nelse if (msg.payload == \"eggs\")\n{\n    return [null,null,null,msg];    \n}",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 900,
+        "wires": [
+            [
+                "4a4f5c54353e7d1b"
+            ],
+            [
+                "6d55a13f6f38cdc1"
+            ],
+            [
+                "db1005ec317389b0"
+            ],
+            [
+                "ff7539a879f9d1a5"
+            ]
+        ]
+    },
+    {
+        "id": "d3cfc578b4a44498",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "msg.topic= \"coke\";\nmsg.payload.coke=msg.payload.coke-1;   \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1920,
+        "y": 880,
+        "wires": [
+            [
+                "924927f2fbb8b41f",
+                "3197665b3622f94f",
+                "86970221b0a50cc2",
+                "71a3f9927e1448dc",
+                "7331af51372b7b4c",
+                "262c06e347f87e02"
+            ]
+        ]
+    },
+    {
+        "id": "ec52cc654b2044ac",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "msg.topic= \"super\";\nmsg.payload.super=msg.payload.super-1;   \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1960,
+        "y": 940,
+        "wires": [
+            [
+                "924927f2fbb8b41f",
+                "3197665b3622f94f",
+                "87c449b5fe285bcc",
+                "4423b11811aaa54d",
+                "51dc3c06c5196841",
+                "56c79e36846517fe"
+            ]
+        ]
+    },
+    {
+        "id": "c0d23b44919e04cf",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "msg.topic= \"eggs\";\nmsg.payload.eggs=msg.payload.eggs-12;   \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 1000,
+        "wires": [
+            [
+                "924927f2fbb8b41f",
+                "3197665b3622f94f",
+                "d327be5801d2a97a",
+                "8931303403cf6190",
+                "f4c5f7a9066f1860",
+                "f5c1765b06469063"
+            ]
+        ]
+    },
+    {
+        "id": "6d55a13f6f38cdc1",
+        "type": "file in",
+        "z": "b720409cea17e211",
+        "name": "",
+        "filename": "C:\\Users\\DELL\\Downloads\\quantity.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 1350,
+        "y": 860,
+        "wires": [
+            [
+                "d08a7c16ea3ca5c6"
+            ]
+        ]
+    },
+    {
+        "id": "db1005ec317389b0",
+        "type": "file in",
+        "z": "b720409cea17e211",
+        "name": "",
+        "filename": "C:\\Users\\DELL\\Downloads\\quantity.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 1350,
+        "y": 920,
+        "wires": [
+            [
+                "8e7dd58c54ca1455"
+            ]
+        ]
+    },
+    {
+        "id": "ff7539a879f9d1a5",
+        "type": "file in",
+        "z": "b720409cea17e211",
+        "name": "",
+        "filename": "C:\\Users\\DELL\\Downloads\\quantity.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 1350,
+        "y": 980,
+        "wires": [
+            [
+                "24bc70bd86daf793"
+            ]
+        ]
+    },
+    {
+        "id": "d08a7c16ea3ca5c6",
+        "type": "csv",
+        "z": "b720409cea17e211",
+        "name": "Parse values",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1610,
+        "y": 860,
+        "wires": [
+            [
+                "7cc89eb1f014e142"
+            ]
+        ]
+    },
+    {
+        "id": "7cc89eb1f014e142",
+        "type": "delay",
+        "z": "b720409cea17e211",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1770,
+        "y": 880,
+        "wires": [
+            [
+                "d3cfc578b4a44498"
+            ]
+        ]
+    },
+    {
+        "id": "8e7dd58c54ca1455",
+        "type": "csv",
+        "z": "b720409cea17e211",
+        "name": "Parse values",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1610,
+        "y": 920,
+        "wires": [
+            [
+                "9807c8d358aed645"
+            ]
+        ]
+    },
+    {
+        "id": "9807c8d358aed645",
+        "type": "delay",
+        "z": "b720409cea17e211",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1770,
+        "y": 940,
+        "wires": [
+            [
+                "ec52cc654b2044ac"
+            ]
+        ]
+    },
+    {
+        "id": "24bc70bd86daf793",
+        "type": "csv",
+        "z": "b720409cea17e211",
+        "name": "Parse values",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1610,
+        "y": 980,
+        "wires": [
+            [
+                "0ad27ad5e69c6b23"
+            ]
+        ]
+    },
+    {
+        "id": "0ad27ad5e69c6b23",
+        "type": "delay",
+        "z": "b720409cea17e211",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1770,
+        "y": 1000,
+        "wires": [
+            [
+                "c0d23b44919e04cf"
+            ]
+        ]
+    },
+    {
+        "id": "86970221b0a50cc2",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"coke\" :msg.payload.coke};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2220,
+        "y": 760,
+        "wires": [
+            [
+                "9cc77e37b49f4c28"
+            ]
+        ]
+    },
+    {
+        "id": "87c449b5fe285bcc",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"super\" :msg.payload.super};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2220,
+        "y": 820,
+        "wires": [
+            [
+                "9145c11c0cee39b0"
+            ]
+        ]
+    },
+    {
+        "id": "d327be5801d2a97a",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"eggs\" :msg.payload.eggs};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2220,
+        "y": 880,
+        "wires": [
+            [
+                "f32102110e21bd26"
+            ]
+        ]
+    },
+    {
+        "id": "9cc77e37b49f4c28",
+        "type": "ubidots_out",
+        "z": "b720409cea17e211",
+        "name": "",
+        "token": "BBFF-kIIv5BfT8a0dmJTdNhzXGrUrEX7GG7",
+        "label_device": "",
+        "device_label": "project-adc",
+        "tier": "business",
+        "tls_checkbox": true,
+        "x": 2410,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "9145c11c0cee39b0",
+        "type": "ubidots_out",
+        "z": "b720409cea17e211",
+        "name": "",
+        "token": "BBFF-kIIv5BfT8a0dmJTdNhzXGrUrEX7GG7",
+        "label_device": "",
+        "device_label": "project-adc",
+        "tier": "business",
+        "tls_checkbox": true,
+        "x": 2410,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "f32102110e21bd26",
+        "type": "ubidots_out",
+        "z": "b720409cea17e211",
+        "name": "",
+        "token": "BBFF-kIIv5BfT8a0dmJTdNhzXGrUrEX7GG7",
+        "label_device": "",
+        "device_label": "project-adc",
+        "tier": "business",
+        "tls_checkbox": true,
+        "x": 2410,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "ebbe860dc9785639",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "\nmsg.payload=[{\"title\":\"<b>Lays</b>\",\"description\":\"20 Rs\",\"icon\":\"https://shaheengrocers.pk/images/thumbs/0027860_lays-classic-plain-salted-chips-40gm_510.jpeg\"}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2040,
+        "y": 460,
+        "wires": [
+            [
+                "c3415d3cd9bdd23f"
+            ]
+        ]
+    },
+    {
+        "id": "c3415d3cd9bdd23f",
+        "type": "json",
+        "z": "b720409cea17e211",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 2270,
+        "y": 460,
+        "wires": [
+            [
+                "1e527ce8e568e616",
+                "ac9e36d973ab9cad"
+            ]
+        ]
+    },
+    {
+        "id": "1e527ce8e568e616",
+        "type": "ui_list",
+        "z": "b720409cea17e211",
+        "group": "7c179a83b56fef95",
+        "name": "",
+        "order": 6,
+        "width": 6,
+        "height": 5,
+        "lineType": "two",
+        "actionType": "none",
+        "allowHTML": true,
+        "outputs": 0,
+        "topic": "",
+        "x": 2430,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ac9e36d973ab9cad",
+        "type": "debug",
+        "z": "b720409cea17e211",
+        "name": "print",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2390,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "71a3f9927e1448dc",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "\nmsg.payload=[{\"title\":\"<b>Coke</b>\",\"description\":\"50 Rs\",\"icon\":\"https://media.istockphoto.com/photos/coke-picture-id458464735?k=20&m=458464735&s=612x612&w=0&h=CW8rzEiIMvuO23X9I3b6U_g2aBUQSZnWYLjWauLMxtg=\"}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2060,
+        "y": 520,
+        "wires": [
+            [
+                "c3415d3cd9bdd23f"
+            ]
+        ]
+    },
+    {
+        "id": "4423b11811aaa54d",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "\nmsg.payload=[{\"title\":\"<b>Super Biscuit</b>\",\"description\":\"10 Rs\",\"icon\":\"https://cdn2.bigcommerce.com/server300/2cec5/products/225/images/54651/image_18__75490.1619403514.1280.1280.png?c=2\"}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2080,
+        "y": 580,
+        "wires": [
+            [
+                "c3415d3cd9bdd23f"
+            ]
+        ]
+    },
+    {
+        "id": "8931303403cf6190",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "\nmsg.payload=[{\"title\":\"<b>Eggs</b>\",\"description\":\"60 Rs\",\"icon\":\"https://solidstarts.com/wp-content/uploads/when-can-babies-eat-eggs.jpg\"}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2100,
+        "y": 640,
+        "wires": [
+            [
+                "c3415d3cd9bdd23f"
+            ]
+        ]
+    },
+    {
+        "id": "aac78d7e1d2c2644",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "if(msg.payload != \"omer\"){\n    msg={};\n    return [msg, null]\n}\nelse{\n    \n    return [null,msg]\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 360,
+        "wires": [
+            [
+                "d76b4720946b265c"
+            ],
+            [
+                "b3dee5f82a82f1f6"
+            ]
+        ]
+    },
+    {
+        "id": "a7ca21f2f1028535",
+        "type": "ubidots_in",
+        "z": "b720409cea17e211",
+        "tier": "business",
+        "name": "Ubidots in",
+        "token": "BBFF-YfHn5y4jdTE2A2HlmY4vcQXP6GWov8",
+        "device_label": "emeter",
+        "tls_checkbox_in": true,
+        "custom_topic_checkbox": false,
+        "label_variable_1": "a",
+        "label_variable_2": "",
+        "label_variable_3": "",
+        "label_variable_4": "",
+        "label_variable_5": "",
+        "label_variable_6": "",
+        "label_variable_7": "",
+        "label_variable_8": "",
+        "label_variable_9": "",
+        "label_variable_10": "",
+        "checkbox_variable_1_last_value": true,
+        "checkbox_variable_2_last_value": true,
+        "checkbox_variable_3_last_value": true,
+        "checkbox_variable_4_last_value": true,
+        "checkbox_variable_5_last_value": true,
+        "checkbox_variable_6_last_value": true,
+        "checkbox_variable_7_last_value": true,
+        "checkbox_variable_8_last_value": true,
+        "checkbox_variable_9_last_value": true,
+        "checkbox_variable_10_last_value": true,
+        "x": 240,
+        "y": 1100,
+        "wires": [
+            [
+                "eb45f8c4a7d79d4f"
+            ]
+        ]
+    },
+    {
+        "id": "207c1310be5580c9",
+        "type": "debug",
+        "z": "b720409cea17e211",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "d672c4431312d2c3",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "if (msg.payload.a.value == 1){\n    msg.payload= \"truning on AC\";\n    return msg\n    \n    \n}\nelse {\n    msg.payload= \"truning off AC\";\n    return msg\n    \n    \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 1120,
+        "wires": [
+            [
+                "207c1310be5580c9"
+            ]
+        ]
+    },
+    {
+        "id": "eb45f8c4a7d79d4f",
+        "type": "json",
+        "z": "b720409cea17e211",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 430,
+        "y": 1120,
+        "wires": [
+            [
+                "d672c4431312d2c3"
+            ]
+        ]
+    },
+    {
+        "id": "a5dbffcfc035b495",
+        "type": "inject",
+        "z": "b720409cea17e211",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "Temperature",
+        "payload": "",
+        "payloadType": "num",
+        "x": 260,
+        "y": 1280,
+        "wires": [
+            [
+                "6e77c77b9323832d"
+            ]
+        ]
+    },
+    {
+        "id": "6e77c77b9323832d",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "msg.payload = Math.round(Math.random()*100);\nvar temp2= msg;\nreturn temp2;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1340,
+        "wires": [
+            [
+                "6868993de6f82d0b"
+            ]
+        ]
+    },
+    {
+        "id": "6868993de6f82d0b",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"a_temp\":msg.payload};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1300,
+        "wires": [
+            [
+                "58adf0a5a3566099",
+                "184989ba57ddca72"
+            ]
+        ]
+    },
+    {
+        "id": "184989ba57ddca72",
+        "type": "debug",
+        "z": "b720409cea17e211",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "58adf0a5a3566099",
+        "type": "ubidots_out",
+        "z": "b720409cea17e211",
+        "name": "",
+        "token": "BBFF-YfHn5y4jdTE2A2HlmY4vcQXP6GWov8",
+        "label_device": "",
+        "device_label": "emeter",
+        "tier": "business",
+        "tls_checkbox": true,
+        "x": 1130,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "da4ab9e0f7a6b1b0",
+        "type": "ui_toast",
+        "z": "b720409cea17e211",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1390,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d76b4720946b265c",
+        "type": "template",
+        "z": "b720409cea17e211",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Wrong Password",
+        "output": "str",
+        "x": 1080,
+        "y": 340,
+        "wires": [
+            [
+                "da4ab9e0f7a6b1b0"
+            ]
+        ]
+    },
+    {
+        "id": "e6d83a706ca0cfc6",
+        "type": "ui_text_input",
+        "z": "b720409cea17e211",
+        "name": "",
+        "label": "Name:",
+        "tooltip": "",
+        "group": "7c179a83b56fef95",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 630,
+        "y": 340,
+        "wires": [
+            [
+                "3d8555ccfc5b0515"
+            ]
+        ]
+    },
+    {
+        "id": "b3dee5f82a82f1f6",
+        "type": "template",
+        "z": "b720409cea17e211",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Item bought",
+        "output": "str",
+        "x": 1080,
+        "y": 380,
+        "wires": [
+            [
+                "da4ab9e0f7a6b1b0"
+            ]
+        ]
+    },
+    {
+        "id": "e3c74bc03ebdac48",
+        "type": "debug",
+        "z": "b720409cea17e211",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "263145c3b581ec0f",
+        "type": "ui_text_input",
+        "z": "b720409cea17e211",
+        "name": "",
+        "label": "Passowrd:",
+        "tooltip": "",
+        "group": "7c179a83b56fef95",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "password",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 650,
+        "y": 380,
+        "wires": [
+            [
+                "aac78d7e1d2c2644",
+                "e3c74bc03ebdac48"
+            ]
+        ]
+    },
+    {
+        "id": "6aa3890d21b2e616",
+        "type": "ui_button",
+        "z": "b720409cea17e211",
+        "name": "",
+        "group": "7c179a83b56fef95",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Buy",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "f23e20dc8321ae2c"
+            ]
+        ]
+    },
+    {
+        "id": "f23e20dc8321ae2c",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "\nmsg={};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "e6d83a706ca0cfc6",
+                "263145c3b581ec0f"
+            ]
+        ]
+    },
+    {
+        "id": "3d8555ccfc5b0515",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "if(msg.payload != \"omer\"){\n    return [msg, null]\n}\nelse{\n    \n    return [null,null]\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 280,
+        "wires": [
+            [
+                "2afadb3386288aef"
+            ],
+            [
+                "b267cb908cd99a84"
+            ]
+        ]
+    },
+    {
+        "id": "b267cb908cd99a84",
+        "type": "template",
+        "z": "b720409cea17e211",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Wrong Password",
+        "output": "str",
+        "x": 1080,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2afadb3386288aef",
+        "type": "template",
+        "z": "b720409cea17e211",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Wrong UserName",
+        "output": "str",
+        "x": 1080,
+        "y": 260,
+        "wires": [
+            [
+                "da4ab9e0f7a6b1b0"
+            ]
+        ]
+    },
+    {
+        "id": "e9bb712d0b52bfba",
+        "type": "ubidots_out",
+        "z": "b720409cea17e211",
+        "name": "",
+        "token": "BBFF-kIIv5BfT8a0dmJTdNhzXGrUrEX7GG7",
+        "label_device": "",
+        "device_label": "project-adc",
+        "tier": "business",
+        "tls_checkbox": true,
+        "x": 2450,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "f4c5f7a9066f1860",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"price\" :60};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1180,
+        "wires": [
+            [
+                "e9bb712d0b52bfba"
+            ]
+        ]
+    },
+    {
+        "id": "51dc3c06c5196841",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"price\" :10};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1140,
+        "wires": [
+            [
+                "e9bb712d0b52bfba"
+            ]
+        ]
+    },
+    {
+        "id": "7331af51372b7b4c",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"price\" :50};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1100,
+        "wires": [
+            [
+                "e9bb712d0b52bfba"
+            ]
+        ]
+    },
+    {
+        "id": "85675b5f766e5be3",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"Price\" : 20};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1060,
+        "wires": [
+            [
+                "e9bb712d0b52bfba"
+            ]
+        ]
+    },
+    {
+        "id": "f5c1765b06469063",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"eggsprice\" :60};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1380,
+        "wires": [
+            [
+                "970baafb1223427e"
+            ]
+        ]
+    },
+    {
+        "id": "56c79e36846517fe",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"Superprice\" :10};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1340,
+        "wires": [
+            [
+                "970baafb1223427e"
+            ]
+        ]
+    },
+    {
+        "id": "262c06e347f87e02",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"cokeprice\" :50};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1300,
+        "wires": [
+            [
+                "970baafb1223427e"
+            ]
+        ]
+    },
+    {
+        "id": "3c457455add3589f",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "var temp ={\"LaysPrice\" : 20};\n\nreturn {\"payload\":temp};\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1260,
+        "wires": [
+            [
+                "970baafb1223427e"
+            ]
+        ]
+    },
+    {
+        "id": "970baafb1223427e",
+        "type": "ubidots_out",
+        "z": "b720409cea17e211",
+        "name": "",
+        "token": "BBFF-kIIv5BfT8a0dmJTdNhzXGrUrEX7GG7",
+        "label_device": "",
+        "device_label": "project-adc",
+        "tier": "business",
+        "tls_checkbox": true,
+        "x": 2630,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "3a8029324f1e15c7",
+        "type": "function",
+        "z": "b720409cea17e211",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "42319bb4780fdde0",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 1,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "68533686c70d5db7",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 2,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "f882db73b6540866",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "ce03e82ab29a8c7a",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "e3ed2c980878661e",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "770451de8f8a9642",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 9,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "5ea5ecec601fa598",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 10,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "d26eef0a3216a169",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 11,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "70d6aafca25e082b",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 12,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "8926a6761e6139eb",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "c5e81d6639cb9f9d",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 14,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "01caee5f2425a2d7",
+        "type": "ui_spacer",
+        "z": "b720409cea17e211",
+        "name": "spacer",
+        "group": "7c179a83b56fef95",
+        "order": 15,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "5705b53f.d3e0bc",
+        "type": "ui_group",
+        "name": "Linear Gauges",
+        "tab": "64fe41f2.fdbe3",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "7c179a83b56fef95",
+        "type": "ui_group",
+        "name": "Smart Shopping mart app",
+        "tab": "82d3ace5f5c98cc0",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6454750db0f47322",
+        "type": "remote-config",
+        "name": "Node-RED UI",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/",
+        "instancehash": "wzd7hvrwqbcvbjdbeuzb8vfvb8a9w0jomc5lipn1niew26whl357vp8xee8b8fim",
+        "server": "nodered02.remote-red.com",
+        "region": "de"
+    },
+    {
+        "id": "64fe41f2.fdbe3",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 6
+    },
+    {
+        "id": "82d3ace5f5c98cc0",
+        "type": "ui_tab",
+        "name": "Smart Mart",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
